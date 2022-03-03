@@ -1,7 +1,9 @@
 <?php
-/**
- * Author: Piper Varney
- * Date: 3/1/22
- * File: payable.class.php
- * Description:
- */
+
+interface Payable {
+
+    // abstract methods
+    public function getPaymentAmount();
+
+    public function toString();
+}
