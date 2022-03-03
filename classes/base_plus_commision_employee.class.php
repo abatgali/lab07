@@ -1,7 +1,7 @@
 <?php
 /**
- * Author: Piper Varney
+ * Author: Kavin Thakkar
  * Date: 3/1/22
- * File: base_plus_commision_employee.class.php
+ * File: base_plus_commission_employee.class.php
  * Description:
  */
