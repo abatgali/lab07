@@ -37,7 +37,14 @@ class HourlyEmployee extends Employee{
     public function getPaymentAmount()
     {
         $payment_amount = $this->wage * $this->hours;
+
+        //overtime calculation
+        if ($this->hours > 40) {
+           $wage = $this->wage * 1.5;
+        }
+
         return $this->$payment_amount;
     }
+
     //toString method
 }
