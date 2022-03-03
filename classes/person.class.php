@@ -43,6 +43,6 @@ class Person {
 
     //to string function
     public function toString(){
-        echo "Name:", $this->getFirstName(), " ", $this->getLastName();
+        echo "Name: ", $this->getFirstName(), " ", $this->getLastName();
     }
 }
