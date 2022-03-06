@@ -11,8 +11,8 @@ class CommissionEmployee extends Employee
 {
     private $sales, $commission_rate;
 
-    public function __construct($name, $title, $years, $salary, $sales, $commission_rate) {
-        parent::__construct($name, $title, $years, $salary);
+    public function __construct($person, $ssn, $sales, $commission_rate) {
+        parent::__construct($person, $ssn);
         $this->sales = $sales;
         $this->commission_rate = $commission_rate;
     }
@@ -32,5 +32,10 @@ class CommissionEmployee extends Employee
 
     public function toString() {
 //echo it up!
+        echo "Name: ", $this->getPerson();
+        echo "<br>Social security number: ", $this->getSsn();
+        echo "<br>Gross Sale: $", $this->getSales();
+        echo "<br>Commission Rate: ", $this->getCommissionRate();
+        echo "<br>Earning: $", $this->getPaymentAmount();
     }
 }

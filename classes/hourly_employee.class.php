@@ -10,7 +10,7 @@ class HourlyEmployee extends Employee{
     private $wage, $hours;
 
     //static data member to count number of employees
-    private static $employee_count = 0;
+    //private static $employee_count = 0;
 
     //the constructor
     public function __construct($person, $ssn, $wage, $hours)
@@ -18,7 +18,7 @@ class HourlyEmployee extends Employee{
         parent::__construct($person, $ssn);
         $this->wage = $wage;
         $this->hours = $hours;
-        self::$employee_count++;
+        //self::$employee_count++;
     }
 
     //get method for wage
@@ -40,11 +40,20 @@ class HourlyEmployee extends Employee{
 
         //overtime calculation
         if ($this->hours > 40) {
-           $wage = $this->wage * 1.5;
+           $this->wage = $this->wage * 1.5;
         }
 
-        return $this->$payment_amount;
+        return $payment_amount;
     }
 
     //toString method
+    public function toString()
+    {
+        echo "Name: ", $this->getPerson();
+        echo "<br>Social security number: ", $this->getSsn();
+        echo "<br>Wage per Hour: $", $this->getWage();
+        echo "<br>Hours: ", $this->getHours();
+        echo "<br>Earning: $", $this->getPaymentAmount();
+
+    }
 }

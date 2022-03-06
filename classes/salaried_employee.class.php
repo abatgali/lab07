@@ -9,15 +9,16 @@
 class SalariedEmployee extends Employee {
     private $weekly_salary;
 
-    //static data member to count number of employees
-    private static $employee_count = 0;
+    //we likely don't need this here as it gets inherited from Employee
+    //- static data member to count number of employees
+    //private static $employee_count = 0;
 
     //constructor
     public function __construct($person, $ssn, $weekly_salary)
     {
         parent::__construct($person, $ssn);
         $this->weekly_salary = $weekly_salary;
-        self::$employee_count++;
+        //self::$employee_count++;
     }
 
     //get method for weekly salary
@@ -29,13 +30,16 @@ class SalariedEmployee extends Employee {
     //get method for payment amount
     public function getPaymentAmount()
     {
-        return $this->getPaymentAmount();
+        return $this->getWeeklySalary();
     }
+
     //toString method
     public function toString()
     {
-        parent::toString();
-
+        echo "Name: ", $this->getPerson();
+        echo "<br>Social security number: ", $this->getSsn();
+        echo "<br>Weekly Salary: $", $this->getWeeklySalary();
+        echo "<br>Earning: $", $this->getPaymentAmount();
     }
 
 }

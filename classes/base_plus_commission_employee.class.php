@@ -12,8 +12,8 @@ class BasePlusCommissionEmployee extends CommissionEmployee
 {
     private $base_salary;
 
-    public function __construct($name, $title, $years, $salary, $sales, $commission_rate, $base_salary) {
-        parent::__construct($name, $title, $years, $salary, $sales, $commission_rate);
+    public function __construct($person, $ssn, $sales, $commission_rate, $base_salary) {
+        parent::__construct($person, $ssn, $sales, $commission_rate);
         $this->base_salary = $base_salary;
     }
 
@@ -28,5 +28,11 @@ class BasePlusCommissionEmployee extends CommissionEmployee
 
     public function toString() {
         //echo it up!
+        echo "Name: ", $this->getPerson();
+        echo "<br>Social security number: ", $this->getSsn();
+        echo "<br>Gross Sale: $", $this->getSales();
+        echo "<br>Commission Rate: ", $this->getCommissionRate();
+        echo "<br>Base Salary: $", $this->getBaseSalary();
+        echo "<br>Earning: $", $this->getPaymentAmount();
     }
 }
