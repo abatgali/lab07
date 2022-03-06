@@ -13,7 +13,7 @@ class Invoice implements Payable
     private $part_description;
     private $quantity;
     private $price_per_item;
-    private static $invoice_count;
+    private static $invoice_count = 0;
 
     // constructor
     public function __construct($partNum, $partDesc, $quantity, $pricePerItem)
