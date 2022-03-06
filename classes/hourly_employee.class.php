@@ -50,7 +50,7 @@ class HourlyEmployee extends Employee{
     public function toString()
     {
         echo "Name: ", $this->getPerson();
-        echo "<br>Social security number: ", $this->getSsn();
+        echo "<br>Social Security Number: ", $this->getSsn();
         echo "<br>Wage per Hour: $", $this->getWage();
         echo "<br>Hours: ", $this->getHours();
         echo "<br>Earning: $", $this->getPaymentAmount();

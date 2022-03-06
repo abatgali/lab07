@@ -74,11 +74,11 @@ class Invoice implements Payable
     public function toString()
     {
         echo "<h3>Invoice: </h3>";
-        echo "Part Number: $$this->part_number ($this->part_description)";
+        echo "Part Number: $this->part_number ($this->part_description)";
 
         echo "<br>Quantity: $this->quantity";
         echo "<br>Price Per Item: $$this->price_per_item";
-        echo "<br>Payment: $", $this->getPaymentAmount();
+        printf("<br>Payment: $%.2f", $this->getPaymentAmount());
         echo "<br>";
     }
 

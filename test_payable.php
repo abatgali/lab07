@@ -65,7 +65,7 @@ spl_autoload_register(function($class_name){
         $h = new HourlyEmployee($p3, '101-34-0980', 16.75, 42);
         $b = new BasePlusCommissionEmployee($p4, '444-44-4444', 5000, 0.06, 500);
 
-        $employees = array($c, $s, $h, $b);
+        $employees = array($s, $h, $c, $b);
 
 
        //function to differentiate between classes and call their toString function
