@@ -27,17 +27,6 @@ class Person {
         return $this->last_name;
     }
 
-
- /*   //set name
-    public function setFirstName($first_name){
-        $this->first_name = $first_name;
-    }
-
-    public function setLastName($last_name){
-        $this->last_name = $last_name;
-    }*/
-
-
     //to string function
     public function toString(){
         echo "Name: ", $this->getFirstName(), " ", $this->getLastName();
