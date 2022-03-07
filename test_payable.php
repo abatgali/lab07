@@ -25,9 +25,9 @@ function camelCaseToUnderscore($str) {
     return implode('', $characters);
 }
 
-/*spl_autoload_register(function($class_name){
-    require_once camelCaseToUnderscore($class_name) . '.class.php';
-});*/
+spl_autoload_register(function($class_name){
+    require_once 'classes/'. camelCaseToUnderscore($class_name) . '.class.php';
+})
 ?>
 
 <!DOCTYPE html>
@@ -37,23 +37,38 @@ function camelCaseToUnderscore($str) {
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <meta name="author" content="Admin" />
 
-        <title>The Person class and its subclasses</title>
+        <title>Lab 07</title>
     </head>
 
     <body>
-
+        <h2>Payroll System Programmed with OOP</h2>
+        <hr>
         <?php
+        // creating Invoices
+        $inv1 = new Invoice(01234, "seat", 2, 443);
+        $inv2 = new Invoice(56789, "tire", 4, 79.95);
 
-        //create new employee objects
-        $c = new CommissionEmployee("Mellisa Rogers", "Manager", 3, 75000, 20, 10.5);
-        $s = new SalariedEmployee ("Mellisa Rogers", "Asst. Manager", 500);
-        $h = new HourlyEmployee("Ian Watson", "012-33-4567", 10.5, 3);
-        $b = new BasePlusCommissionEmployee("Kimberlee Wang", "Receptionist", 5, 50000, 55, 20);
+        // printing out invoice details
+        $inv1->toString();
+        echo "<br>************************************<br>";
+        $inv2->toString();
 
-        $employees = array($c, $s, $h, $b);
+        // creating four person objects
+        $p1 = new Person("Melissa", "Rogers");
+        $p2 = new Person("Steve", "Rogers");
+        $p3 = new Person("Ian", "Watson");
+        $p4 = new Person("Kimberlee", "Wang");
+
+        // creating employees
+        $c = new CommissionEmployee($p1, '123-44-6789', 100000, 0.085);
+        $s = new SalariedEmployee ($p2, '012-34-5678', 800);
+        $h = new HourlyEmployee($p3, '101-34-0980', 16.75, 42);
+        $b = new BasePlusCommissionEmployee($p4, '444-44-4444', 5000, 0.06, 500);
+
+        $employees = array($s, $h, $c, $b);
 
 
-       //display the string representation of a Employee object
+       //function to differentiate between classes and call their toString function
         function printEmployee(Employee $emp) {
             if (get_class($emp) == "CommissionEmployee") {
                   echo "<h3>Commission Employee</h3>";
@@ -72,24 +87,15 @@ function camelCaseToUnderscore($str) {
             $emp->toString();
         }
 
-/*
-        echo "<h3>", GradStudent::getStudentCount(), " graduate students have been created.</h3>";
-        echo "<h3>", UndergradStudent::getStudentCount(), " undergraduate students have been
-               created.</h3>";
+        //display information by calling the toString method
+        foreach ($employees as $emp) {
+            echo "<br><br>************************************<br>";
+            printEmployee($emp);
+        }
 
-
-    // create two Medical Student objects
-    $m1 = new MedicalStudent("Timothy Lindsey", "male", "Family Medicine", 3.4, "MD", 11.0);
-    $m2 = new MedicalStudent("Amy Ling", "Female", "Anesthesiology", 3.8, "MD", 10.8);
-
-    $students = array($g1, $g2, $u1, $u2, $m1, $m2);
-
-    echo "<h3>". MedicalStudent::getStudentCount() . " medical students have been created.</h3>";*/
-
-    //display information by calling the toString method
-    foreach ($employees as $emp) {
-        printEmployee($emp);
-    }
-    ?>
+        // displaying number of invoices and employees
+        echo "<br><br>************************************<br><br>Number of Invoices: ", Invoice::getInvoiceCount();
+        echo "<br>Number of Employees: ", Employee::getEmployeeCount();
+        ?>
     </body>
 </html>
