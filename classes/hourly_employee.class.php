@@ -9,16 +9,12 @@
 class HourlyEmployee extends Employee{
     private $wage, $hours;
 
-    //static data member to count number of employees
-    //private static $employee_count = 0;
-
     //the constructor
     public function __construct($person, $ssn, $wage, $hours)
     {
         parent::__construct($person, $ssn);
         $this->wage = $wage;
         $this->hours = $hours;
-        //self::$employee_count++;
     }
 
     //get method for wage

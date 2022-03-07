@@ -9,16 +9,11 @@
 class SalariedEmployee extends Employee {
     private $weekly_salary;
 
-    //we likely don't need this here as it gets inherited from Employee
-    //- static data member to count number of employees
-    //private static $employee_count = 0;
-
     //constructor
     public function __construct($person, $ssn, $weekly_salary)
     {
         parent::__construct($person, $ssn);
         $this->weekly_salary = $weekly_salary;
-        //self::$employee_count++;
     }
 
     //get method for weekly salary
