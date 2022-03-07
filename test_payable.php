@@ -44,7 +44,7 @@ function camelCaseToUnderscore($str) {
 
         <?php
 
-        //create two GradStudent and two Undergrad objects
+        //create new employee objects
         $c = new CommissionEmployee("Mellisa Rogers", "Manager", 3, 75000, 20, 10.5);
         $s = new SalariedEmployee ("Mellisa Rogers", "Asst. Manager", 500);
         $h = new HourlyEmployee("Ian Watson", "012-33-4567", 10.5, 3);
@@ -53,7 +53,7 @@ function camelCaseToUnderscore($str) {
         $employees = array($c, $s, $h, $b);
 
 
-       //display the string representation of a Student object
+       //display the string representation of a Employee object
         function printEmployee(Employee $emp) {
             if (get_class($emp) == "CommissionEmployee") {
                   echo "<h3>Commission Employee</h3>";
