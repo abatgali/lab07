@@ -73,7 +73,7 @@ class Invoice implements Payable
     // output details in invoice class
     public function toString()
     {
-        echo "<h3>Invoice: </h3>";
+        //echo "<h3>Invoice: </h3>";
         echo "Part Number: $this->part_number ($this->part_description)";
 
         echo "<br>Quantity: $this->quantity";

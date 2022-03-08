@@ -49,9 +49,9 @@ spl_autoload_register(function($class_name){
         $inv2 = new Invoice(56789, "tire", 4, 79.95);
 
         // printing out invoice details
-        $inv1->toString();
+        //$inv1->toString();
         echo "<br>************************************<br>";
-        $inv2->toString();
+        //$inv2->toString();
 
         // creating four person objects
         $p1 = new Person("Melissa", "Rogers");
@@ -65,11 +65,11 @@ spl_autoload_register(function($class_name){
         $h = new HourlyEmployee($p3, '101-34-0980', 16.75, 42);
         $b = new BasePlusCommissionEmployee($p4, '444-44-4444', 5000, 0.06, 500);
 
-        $employees = array($s, $h, $c, $b);
+        $employees = array($inv1, $inv2, $s, $h, $c, $b );
 
 
        //function to differentiate between classes and call their toString function
-        function printEmployee(Employee $emp) {
+        function printEmployee(Payable $emp) {
             if (get_class($emp) == "CommissionEmployee") {
                   echo "<h3>Commission Employee</h3>";
             }
@@ -84,6 +84,11 @@ spl_autoload_register(function($class_name){
             else if(get_class($emp) == "BasePlusCommissionEmployee") {
                 echo "<h3>Base Plus Commission Employee</h3>";
             }
+
+            else if(get_class($emp) == "Invoice") {
+                echo "<h3>Invoice</h3>";
+            }
+
             $emp->toString();
         }
 
