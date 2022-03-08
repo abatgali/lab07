@@ -6,7 +6,7 @@
  * Description:
  */
 
-abstract class Employee{
+abstract class Employee implements Payable {
 
     //private data member for ssn
     private $ssn;

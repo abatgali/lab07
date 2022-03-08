@@ -50,7 +50,6 @@ spl_autoload_register(function($class_name){
 
         // printing out invoice details
         //$inv1->toString();
-        echo "<br>************************************<br>";
         //$inv2->toString();
 
         // creating four person objects
@@ -65,37 +64,39 @@ spl_autoload_register(function($class_name){
         $h = new HourlyEmployee($p3, '101-34-0980', 16.75, 42);
         $b = new BasePlusCommissionEmployee($p4, '444-44-4444', 5000, 0.06, 500);
 
-        $employees = array($inv1, $inv2, $s, $h, $c, $b );
+        $employees = array($inv1, $inv2, $c, $s, $h, $b );
 
 
        //function to differentiate between classes and call their toString function
-        function printEmployee(Payable $emp) {
-            if (get_class($emp) == "CommissionEmployee") {
+        function printPayable(Payable $obj) {
+            if (get_class($obj) == "CommissionEmployee") {
                   echo "<h3>Commission Employee</h3>";
             }
-            else if (get_class($emp) == "SalariedEmployee") {
+            else if (get_class($obj) == "SalariedEmployee") {
                 echo "<h3>Salaried Employee</h3>";
             }
 
-            else if(get_class($emp) == "HourlyEmployee") {
+            else if(get_class($obj) == "HourlyEmployee") {
                 echo "<h3>Hourly Employee</h3>";
             }
 
-            else if(get_class($emp) == "BasePlusCommissionEmployee") {
+            else if(get_class($obj) == "BasePlusCommissionEmployee") {
                 echo "<h3>Base Plus Commission Employee</h3>";
             }
 
-            else if(get_class($emp) == "Invoice") {
+            else if(get_class($obj) == "Invoice") {
                 echo "<h3>Invoice</h3>";
             }
 
-            $emp->toString();
+            $obj->toString();
         }
 
         //display information by calling the toString method
-        foreach ($employees as $emp) {
+        foreach ($employees as $obj) {
             echo "<br><br>************************************<br>";
-            printEmployee($emp);
+
+            printPayable($obj);
+
         }
 
         // displaying number of invoices and employees
